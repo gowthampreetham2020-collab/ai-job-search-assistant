@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup, soup
+from bs4 import BeautifulSoup
 
 def get_jobs(query):
 
@@ -12,9 +12,9 @@ def get_jobs(query):
     jobs = []
 
     results = soup.find_all("h2", class_="title")
-
     for job in results:
-        title = job.text.strip()
+     title = job.text.strip()
+    if query.lower() in title.lower():
         jobs.append(title)
-    print(len(jobs))
+
     return jobs
