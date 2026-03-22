@@ -23,7 +23,7 @@ location = st.selectbox(
 )        
 
 
-if uploaded:
+if uploaded_file:
 
     from resume_parser import parse_resume
 
