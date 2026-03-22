@@ -3,18 +3,22 @@ from bs4 import BeautifulSoup
 
 def get_jobs(query):
 
-    url = "https://realpython.github.io/fake-jobs/"
+    url = f"https://www.naukri.com/{query}-jobs"
 
-    response = requests.get(url)
+    headers = {"User-Agent": "Mozilla/5.0"}
+
+    response = requests.get(url, headers=headers)
 
     soup = BeautifulSoup(response.text, "html.parser")
 
     jobs = []
 
-    results = soup.find_all("h2", class_="title")
-    for job in results:
-     title = job.text.strip()
-    if query.lower() in title.lower():
-        jobs.append(title)
+    for job in soup.select(".jobTuple")[:10]:
+
+        title = job.select_one(".title")
+        company = job.select_one(".companyInfo")
+
+        if title and company:
+            jobs.append(f"{title.text.strip()} - {company.text.strip()}")
 
     return jobs
