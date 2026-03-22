@@ -7,6 +7,10 @@ def parse_resume(file):
     with pdfplumber.open(file) as pdf:
 
         for page in pdf.pages:
-            text += page.extract_text()
+
+            page_text = page.extract_text()
+
+            if page_text:
+                text += page_text
 
     return text
