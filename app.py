@@ -21,7 +21,7 @@ location = st.selectbox(
 "Location",
 ["Any","Bangalore","Mumbai","Delhi","Pune","Hyderabad"]
 )        
-uploaded = st.file_uploader("Upload Resume", type=["pdf"])
+
 
 if uploaded:
 
