@@ -21,9 +21,15 @@ location = st.selectbox(
 "Location",
 ["Any","Bangalore","Mumbai","Delhi","Pune","Hyderabad"]
 )        
+<<<<<<< HEAD
+uploaded = st.file_uploader("Upload Resume", type=["pdf"])
+
+if uploaded:
+=======
 
 
 if uploaded_file:
+>>>>>>> e964efba0d8a6b86fee83d400bb44c95b9fe409f
 
     from resume_parser import parse_resume
 
@@ -48,4 +54,8 @@ skills = detect_skills(resume_text)
 st.subheader("Detected Skills")
 
 for skill in skills:
+<<<<<<< HEAD
     st.write("✔", skill)     
+=======
+    st.write("✔", skill)     
+>>>>>>> e964efba0d8a6b86fee83d400bb44c95b9fe409f

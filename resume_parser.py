@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+import pdfplumber
+
+def parse_resume(file):
+
+    text = ""
+
+    with pdfplumber.open(file) as pdf:
+
+        for page in pdf.pages:
+
+            page_text = page.extract_text()
+
+            if page_text:
+                text += page_text
+
+    return text
+=======
 st.subheader("Upload Resume")
 
 uploaded_file = st.file_uploader(
@@ -20,3 +38,4 @@ if uploaded_file:
 
     for skill in skills:
         st.write("✔", skill)
+>>>>>>> e964efba0d8a6b86fee83d400bb44c95b9fe409f
