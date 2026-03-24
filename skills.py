@@ -10,10 +10,11 @@ SKILLS = [
 
 def detect_skills(text):
 
+    text = text.lower()
     found = []
 
     for skill in SKILLS:
-        if skill in text.lower():
+        if skill in text:
             found.append(skill)
 
     return found
